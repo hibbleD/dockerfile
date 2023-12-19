@@ -19,7 +19,6 @@ RUN pip install -r requirements.txt
 
 RUN apt-get install git -y
 
-RUN /usr/local/bin/python -m pip install --upgrade pip
 
 RUN git submodule update
 
