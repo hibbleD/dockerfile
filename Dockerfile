@@ -17,6 +17,10 @@ RUN apt-get update -qq && \
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
+RUN apt-get install git -y
+
+RUN /usr/local/bin/python -m pip install --upgrade pip
+
 RUN git submodule update
 
 # Install "populartimes" library from the submodule
