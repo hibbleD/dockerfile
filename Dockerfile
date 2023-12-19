@@ -17,8 +17,12 @@ RUN apt-get update -qq && \
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
+RUN git submodule update
+
 # Install "populartimes" library from the submodule
 COPY --link populartimes/ /workspaces/dockerfile/populartimes
+
+RUN sys.path.append('/workspaces/dockerfile/populartimes')
 
 # Copy your Python application code
 COPY get_busy_times.py .
