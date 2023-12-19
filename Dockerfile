@@ -19,11 +19,14 @@ RUN pip install -r requirements.txt
 
 RUN apt-get install git -y
 
+# Install "populartimes" library from the submodule
+COPY --link populartimes/ /workspaces/dockerfile/populartimes
+
 
 RUN git submodule update
 
-# Install "populartimes" library from the submodule
-COPY --link populartimes/ /workspaces/dockerfile/populartimes
+
+
 
 RUN sys.path.append('/workspaces/dockerfile/populartimes')
 
