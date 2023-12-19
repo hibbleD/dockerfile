@@ -25,7 +25,10 @@ COPY --link populartimes/ /workspaces/dockerfile/populartimes
 
 RUN git submodule update
 
-RUN cd populartimes && git submodule init
+RUN cd populartimes && git submodule 
+
+RUN ls -l /workspaces/dockerfile/.git
+RUN cd populartimes && ls -l .git
 
 
 
